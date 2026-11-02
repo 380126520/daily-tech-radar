@@ -4,6 +4,7 @@
 
 ### 每天自动汇总 GitHub 高星库与论文日榜，按你关注的领域过滤，生成中文日报
 
+![version](https://img.shields.io/badge/version-1.0.0-4f6ef7)
 ![Python](https://img.shields.io/badge/Python-3.9+-3776AB)
 ![Schedule](https://img.shields.io/badge/cron-每天%2008:20%20(CST)-4f6ef7)
 ![Cost](https://img.shields.io/badge/成本-零服务器%20·%20GitHub%20Actions-0a8f5b)
