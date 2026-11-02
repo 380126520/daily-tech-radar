@@ -267,7 +267,8 @@ def llm_one_liner(text: str, cfg: dict) -> str | None:
 def render_markdown(date_str: str, gh_new: dict, gh_active: list, hf: dict, arxiv: list,
                     seen: dict, cfg: dict) -> str:
     lines = [f"# 每日技术雷达 · {date_str}", ""]
-    lines.append("> 自动汇总 GitHub 高星库与论文日榜，按「无人机巡检 / 电力视觉缺陷检测 / AI 编程 / AI 应用 / LLM / Skills」过滤。")
+    topic_names = " / ".join(t["name"] for t in cfg["topics"])
+    lines.append(f"> 自动汇总 GitHub 高星库与论文日榜，按「{topic_names}」过滤。")
     lines.append("")
 
     # GitHub 新星
