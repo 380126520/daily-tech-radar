@@ -1,0 +1,53 @@
+name: daily-tech-radar
+
+on:
+  schedule:
+    # UTC 00:20 = 北京时间 08:20；GitHub Actions 定时可能有数分钟延迟
+    - cron: "20 0 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  radar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run daily radar
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          FEISHU_WEBHOOK: ${{ secrets.FEISHU_WEBHOOK }}
+          LLM_SUMMARY_ENABLED: ${{ secrets.LLM_SUMMARY_ENABLED }}
+          LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_MODEL: ${{ secrets.LLM_MODEL }}
+          EMAIL_ENABLED: ${{ secrets.EMAIL_ENABLED }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          MAIL_TO: ${{ secrets.MAIL_TO }}
+        run: python radar.py
+
+      - name: Commit daily report
+        run: |
+          git config user.name "daily-radar-bot"
+          git config user.email "radar-bot@users.noreply.github.com"
+          git add reports/
+          if git diff --cached --quiet; then
+            echo "无新增内容，跳过提交"
+          else
+            git commit -m "chore: daily radar $(date -u +%F)"
+            git push
+          fi

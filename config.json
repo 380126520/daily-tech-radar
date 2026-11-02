@@ -1,0 +1,110 @@
+{
+  "github": {
+    "new_lookback_days": 7,
+    "new_min_stars": 20,
+    "active_min_stars": 500,
+    "active_pushed_hours": 24,
+    "per_query": 30,
+    "max_per_topic": 5,
+    "language": ""
+  },
+  "topics": [
+    {
+      "name": "无人机巡检",
+      "query": "drone inspection",
+      "keywords": [
+        "drone", "uav", "unmanned aerial", "quadcopter", "multirotor", "aerial robot",
+        "power line inspection", "pipeline inspection", "infrastructure inspection",
+        "aerial inspection", "remote inspection", "photogrammetry", "aerial mapping",
+        "orthomosaic", "autonomous flight", "obstacle avoidance", "drone swarm",
+        "巡检", "航巡", "无人机"
+      ]
+    },
+    {
+      "name": "电力视觉缺陷检测",
+      "query": "power line defect detection",
+      "keywords": [
+        "power line", "transmission line", "distribution line", "insulator", "power tower",
+        "transmission tower", "substation", "power grid", "conductor", "power equipment",
+        "defect detection", "anomaly detection", "fault detection", "surface defect",
+        "component detection", "infrared inspection", "thermography", "yolo", "yolov8",
+        "yolov11", "computer vision inspection", "输电", "绝缘子", "铁塔", "变电站",
+        "电力设备", "缺陷检测", "故障识别", "电力巡检"
+      ]
+    },
+    {
+      "name": "AI 编程",
+      "query": "AI coding assistant",
+      "keywords": [
+        "ai coding", "coding agent", "code assistant", "copilot", "code generation",
+        "ai developer", "code review agent", "software engineering agent", "swe-agent",
+        "devin", "cursor", "trae", "claude code", "codex", "pair programming",
+        "代码生成", "编程助手"
+      ]
+    },
+    {
+      "name": "AI 应用 / Agent / RAG",
+      "query": "AI agent framework",
+      "keywords": [
+        "rag", "retrieval augmented generation", "multi-agent", "agent framework",
+        "autonomous agent", "ai workflow", "chatbot", "knowledge base", "llm application",
+        "generative ai", "agent orchestration", "llmops", "智能体", "知识库"
+      ]
+    },
+    {
+      "name": "LLM 模型与推理",
+      "query": "LLM inference",
+      "keywords": [
+        "llm", "large language model", "transformer", "inference engine", "vllm", "lora",
+        "fine-tun", "quantization", "ollama", "llm serving", "model serving", "kvcache",
+        "pagedattention", "gpt", "llama", "mistral", "llm deployment", "大模型"
+      ]
+    },
+    {
+      "name": "Skills / MCP / 提示词生态",
+      "query": "model context protocol",
+      "keywords": [
+        "mcp", "model context protocol", "ai skill", "agent skill", "claude skill",
+        "prompt engineering", "prompt template", "tool calling", "function calling",
+        "agent plugin", "skill marketplace", "提示词", "技能"
+      ]
+    },
+    {
+      "name": "本体 / 知识图谱 / 语义网",
+      "query": "knowledge graph ontology",
+      "keywords": [
+        "ontology", "ontology model", "knowledge graph", "knowledge representation",
+        "semantic web", "rdf", "owl", "skos", "shacl", "description logic",
+        "competency question", "ontology engineering", "ontology-driven",
+        "ontology-grounded", "ontology-guided", "knowledge extraction",
+        "entity linking", "schema alignment", "semantic search", "triple store",
+        "知识图谱", "本体", "语义网", "本体建模"
+      ]
+    }
+  ],
+  "papers": {
+    "hf_daily_limit": 40,
+    "arxiv_categories": "cs.CV+cs.RO+cs.AI+cs.CL",
+    "arxiv_max_total": 30,
+    "max_per_topic": 3
+  },
+  "llm_summary": {
+    "enabled_env": "LLM_SUMMARY_ENABLED",
+    "base_url_env": "LLM_BASE_URL",
+    "api_key_env": "LLM_API_KEY",
+    "model_env": "LLM_MODEL",
+    "default_base_url": "https://api.deepseek.com/v1",
+    "default_model": "deepseek-chat"
+  },
+  "push": {
+    "feishu_webhook_env": "FEISHU_WEBHOOK",
+    "email": {
+      "enabled_env": "EMAIL_ENABLED",
+      "smtp_host_env": "SMTP_HOST",
+      "smtp_port_env": "SMTP_PORT",
+      "smtp_user_env": "SMTP_USER",
+      "smtp_pass_env": "SMTP_PASS",
+      "to_env": "MAIL_TO"
+    }
+  }
+}
