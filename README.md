@@ -1,87 +1,112 @@
-# daily-tech-radar · 每日技术雷达
+<div align="center">
 
-每天自动汇总 **GitHub 高星库** 与 **论文日榜**，按你关注的领域过滤，生成 Markdown 日报，可选推送到飞书 / 邮件。零服务器成本，跑在 GitHub Actions 上。
+# 📡 daily-tech-radar
 
-## 追踪的领域（在 `config.json` 里改）
+### 每天自动汇总 GitHub 高星库与论文日榜，按你关注的领域过滤，生成中文日报
+
+![Python](https://img.shields.io/badge/Python-3.9+-3776AB)
+![Schedule](https://img.shields.io/badge/cron-每天%2008:20%20(CST)-4f6ef7)
+![Cost](https://img.shields.io/badge/成本-零服务器%20·%20GitHub%20Actions-0a8f5b)
+![Output](https://img.shields.io/badge/输出-Markdown%20+%20HTML-7a5cf0)
+
+</div>
+
+---
+
+每天自动抓取 **GitHub 新星库 / 活跃热库** 与 **Hugging Face 论文日榜 / arXiv 新提交**，按你配置的领域关键词本地二次打分过滤，每条配**中文一句话简介**，同时产出卡片式 Markdown 与美观 HTML 两个版本。零服务器成本，跑在 GitHub Actions 上，可选推送到飞书 / 邮件。
+
+## ✨ 亮点
+
+- 🆕 **GitHub 新星库**：近 7 天新建、按 star 降序，再按领域词二次打分
+- 🔥 **GitHub 活跃热库**：24h 内仍有提交的高星库，捕捉仍在活跃演进的项目
+- 📄 **论文日榜**：Hugging Face 社区 upvote 热度 + arXiv 关键词新提交
+- 📝 **中文简介**：每条把英文描述 / 摘要自动译为中文一句话，一眼看懂
+- 🎨 **双版式**：`reports/YYYY-MM-DD.md`（归档）+ `YYYY-MM-DD.html`（浏览器卡片版）
+- 🔁 **去重不刷屏**：`reports/.seen.json` 记录已推送条目，新出现的标 🆕
+- 🔑 **免 Key 可跑**：不配任何 Secret 也能出报；LLM / 飞书 / 邮件均为可选增强
+
+## 🎯 追踪领域（在 `config.json` 里改）
 
 每个领域含一个 `query`（发给 GitHub Search 的主词，只发这一个以控限额）和一组 `keywords`（对仓库标题/描述/topics、论文标题/摘要做本地命中打分）。
 
-| 领域 | 主 query | 本地命中词（节选，已按平台/对象/任务/方法分层） |
+| 领域 | 主 query | 本地命中词（节选） |
 | --- | --- | --- |
-| 无人机巡检 | drone inspection | drone, UAV, unmanned aerial, quadcopter, power-line/pipeline/infrastructure inspection, photogrammetry, autonomous flight, obstacle avoidance, swarm, 巡检, 无人机 |
-| 电力视觉缺陷检测 | power line defect detection | transmission/distribution line, insulator, tower, substation, conductor, defect/anomaly/fault detection, infrared/thermography, YOLOv8/v11, 输电, 绝缘子, 变电站, 缺陷检测 |
-| AI 编程 | AI coding assistant | AI coding, coding agent, code assistant, copilot, code generation, SWE-agent, Devin, Cursor, Trae, Claude Code, Codex |
-| AI 应用 / Agent / RAG | AI agent framework | RAG, retrieval-augmented generation, multi-agent, autonomous agent, agent framework/orchestration, chatbot, knowledge base, LLMops, 智能体, 知识库 |
-| LLM 模型与推理 | LLM inference | LLM, transformer, vLLM, LoRA, fine-tune, quantization, Ollama, LLM serving, KV cache, PagedAttention, Llama, 大模型 |
-| Skills / MCP / 提示词生态 | model context protocol | MCP, Model Context Protocol, AI/agent/Claude skill, prompt engineering/template, tool/function calling, agent plugin, 提示词 |
-| 本体 / 知识图谱 / 语义网 | knowledge graph ontology | ontology, ontology model, knowledge graph, knowledge representation, RDF/OWL/SKOS/SHACL, description logic, ontology-driven/grounded/guided, knowledge extraction, entity linking, schema alignment, 知识图谱, 本体, 语义网 |
+| 无人机巡检 | drone inspection | drone, UAV, quadcopter, power-line/pipeline inspection, photogrammetry, autonomous flight, 巡检, 无人机 |
+| 电力视觉缺陷检测 | power line defect detection | transmission/distribution line, insulator, tower, substation, defect/anomaly detection, infrared, YOLOv8/v11, 绝缘子, 缺陷检测 |
+| AI 编程 | AI coding assistant | AI coding, coding agent, copilot, code generation, SWE-agent, Cursor, Trae, Claude Code, Codex |
+| AI 应用 / Agent / RAG | AI agent framework | RAG, multi-agent, autonomous agent, agent framework, knowledge base, 智能体, 知识库 |
+| LLM 模型与推理 | LLM inference | vLLM, LoRA, fine-tune, quantization, Ollama, KV cache, PagedAttention, 大模型 |
+| Skills / MCP / 提示词生态 | model context protocol | MCP, Model Context Protocol, agent skill, prompt engineering, function calling, 提示词 |
+| 本体 / 知识图谱 / 语义网 | knowledge graph ontology | ontology, knowledge graph, RDF/OWL/SKOS/SHACL, description logic, 知识图谱, 本体, 语义网 |
 
-## 数据源（均为公开）
+## 📊 输出示例（Markdown 卡片版）
 
-| 数据 | 接口 / 页面 | 排序口径 |
-| --- | --- | --- |
-| GitHub 新星库 | `GET api.github.com/search/repositories?q=created:>7d&sort=stars` | 近 7 天新建，star 降序，再按领域词二次打分 |
-| GitHub 活跃热库 | `q=stars:>500 pushed:<24h&sort=stars` | 24h 内仍有提交的高星库 |
-| 论文日榜 | `GET huggingface.co/api/daily_papers?sort=trending` | 社区 upvote 热度 |
-| 新论文 | `rss.arxiv.org/rss/cs.CV+cs.RO+cs.AI+cs.CL` | 按分类订阅后关键词过滤 |
+```markdown
+#### 1. [owner/repo](https://github.com/owner/repo)
+⭐ 12.3k · 🍴 1.2k · Python · 🟢近期活跃
 
-> GitHub Search API：未认证 10 次/分钟、认证后 30 次/分钟，每日一次调用远低于限额。
-> arXiv RSS 为美东时间午夜更新；HF Daily Papers 仅收录提交到 Daily 的论文，不等于 arXiv 全量。
+> 📝 开源自主编码代理，可作为 SDK、IDE 扩展或 CLI 助手。
 
-## 快速开始（Fork 部署）
-
-1. Fork 本仓库到自己账号。
-2. 仓库 **Settings → Secrets and variables → Actions**，按需添加 Secrets（不配也能跑，只是不推送/无 AI 摘要）：
-
-| Secret | 必填 | 说明 |
-| --- | --- | --- |
-| `GH_TOKEN` | 建议 | 个人 PAT（仅 `public_repo` 读权限即可），提高 API 限额到 30 次/分 |
-| `FEISHU_WEBHOOK` | 否 | 飞书群自定义机器人 Webhook，配了就推群 |
-| `LLM_SUMMARY_ENABLED` | 否 | 填 `1` 开启 AI 一句话摘要 |
-| `LLM_BASE_URL` | 否 | OpenAI 兼容接口，默认 DeepSeek `https://api.deepseek.com/v1` |
-| `LLM_API_KEY` | 否 | LLM Key |
-| `LLM_MODEL` | 否 | 默认 `deepseek-chat` |
-| `EMAIL_ENABLED` / `SMTP_HOST` / `SMTP_PORT` / `SMTP_USER` / `SMTP_PASS` / `MAIL_TO` | 否 | 邮件推送，全部配齐才生效 |
-
-3. **Settings → Actions → General → Workflow permissions** 选 `Read and write`（日报要提交回仓库）。
-4. Actions 页手动点一次 `Run workflow` 验证；之后每天北京时间 08:20 自动跑，日报存到 `reports/YYYY-MM-DD.md`。
-
-## 本地测试
-
-```powershell
-cd daily-tech-radar
-python -m pip install -r requirements.txt
-python radar.py
+🔗 [查看仓库](https://github.com/owner/repo)
 ```
 
-打开 `reports/今天日期.md` 查看结果。不带任何 Secret 也能跑：GitHub 走未认证限额、HF/arXiv 公开可读，只是不推送、无 AI 摘要。
+HTML 版在浏览器打开即为渐变标题栏 + 卡片网格，含 star/fork/语言徽章、中文简介、一键访问。
 
-## 自定义
-
-- **加减领域 / 关键词**：改 `config.json` 的 `topics`，每个 topic 含 `query`（直接发给 GitHub 搜索的主词，只发这一个以控制 API 限额）和 `keywords`（对仓库标题/描述/topics、论文标题/摘要做本地命中打分）。
-- **搜索词太宽收不到结果时**：换 `query`；想提高精准度优先加 `keywords`，不要堆 `query`。
-- **关键词写法**：匹配不区分大小写，单词/短语/中文都行；尽量写具体对象词（insulator、transmission line、vLLM），少用 agent/model/skill 这类泛词，泛词在论文里只在标题出现才计分。
-- **阈值**：`new_min_stars`（新星最低星数）、`active_min_stars`（活跃榜门槛）、`max_per_topic`（每领域展示条数）。
-- **指定语言**：`github.language` 填 `Python`/`C++` 等，留空则不限。
-- **论文分类**：改 `papers.arxiv_categories`，多分类用 `+` 连接，如 `cs.CV+cs.RO`。
-
-## 目录结构
+## 🗂 目录结构
 
 ```
 daily-tech-radar/
-├── radar.py              # 主脚本：抓取 → 过滤打分 → 去重 → 渲染 → 推送
+├── radar.py              # 主脚本：抓取 → 过滤打分 → 去重 → 翻译简介 → md/HTML 渲染 → 推送
 ├── config.json           # 领域关键词、阈值、渠道配置
 ├── requirements.txt
 ├── .github/workflows/daily.yml
-└── reports/              # 每日日报 + .seen.json（历史去重）
+└── reports/              # 每日日报 .md/.html + .seen.json（历史去重）
 ```
 
-## 说明
+## 🚀 快速开始（Fork 部署）
 
-- `reports/.seen.json` 记录已推送过的仓库/论文，新出现的条目标 🆕，避免重复刷屏；它随日报一起提交。
-- 飞书机器人若开启了「签名校验」，需在脚本 `push_feishu` 里补 timestamp+sign 逻辑（当前为普通 webhook）。
-- GitHub 官方 Trending 页面无公开 RSS 且反爬较强，因此本方案用官方 Search API 取新星、用 `pushed` 取活跃库，比硬爬 trending HTML 稳定。
-- **API 限额**：未认证 Search 为 10 次/分钟，脚本每领域只发 1 个主 query（共 6 次）+ 1 次活跃榜，留有余量；一旦收到 403 会自动停止后续 GitHub 请求，其余数据源照常出报。配 `GH_TOKEN` 后提升到 30 次/分。
-- **活跃榜口径**：`stars:>阈值 pushed:>近24h`，头部常是天天有提交的巨型项目；想找中腰部新贵就调低 `active_min_stars`。
-- **arXiv 为空是正常的**：RSS 按美东时间午夜更新，周末无新发布批次；工作日白天跑更可能有内容。
-- 论文匹配采用「标题命中加权、泛词（agent/llm/skill 等）仅标题计分」，减少摘要泛词导致的错配；个别噪声可通过增删 `keywords` 收敛。
+1. Fork 本仓库到自己账号。
+2. 仓库 **Settings → Secrets and variables → Actions**，按需添加（不配也能跑，只是不推送 / 无 AI 摘要）：
+
+| Secret | 必填 | 说明 |
+| --- | --- | --- |
+| `GH_TOKEN` | 建议 | 个人 PAT（仅 `public_repo` 读权限），搜索限额提到 30 次/分 |
+| `FEISHU_WEBHOOK` | 否 | 飞书群自定义机器人 Webhook，配了就推群 |
+| `LLM_SUMMARY_ENABLED` | 否 | 填 `1` 开启 LLM 精炼中文一句话（替代免费翻译） |
+| `LLM_BASE_URL` / `LLM_API_KEY` / `LLM_MODEL` | 否 | OpenAI 兼容接口，默认 DeepSeek |
+| `EMAIL_ENABLED` / `SMTP_*` / `MAIL_TO` | 否 | 邮件推送，全部配齐才生效 |
+
+3. **Settings → Actions → General → Workflow permissions** 选 `Read and write`（日报要提交回仓库）。
+4. Actions 页手动 `Run workflow` 验证；之后每天北京时间 **08:20** 自动跑，日报存到 `reports/`。
+
+```bash
+# 本地运行（不带 Secret 也能跑）
+pip install -r requirements.txt
+python radar.py
+# 产出 reports/YYYY-MM-DD.md 与 .html
+```
+
+## ⚙️ 自定义（config.json）
+
+- **加减领域 / 关键词**：改 `topics`，每项含 `query`（主词）和 `keywords`（本地打分词）。
+- **搜索词太宽收不到结果**：换 `query`；想更精准优先加 `keywords`，不要堆 `query`。
+- **阈值**：`new_min_stars`（新星最低星数）、`active_min_stars`（活跃榜门槛）、`max_per_topic`（每领域条数）。
+- **指定语言**：`github.language` 填 `Python`/`C++` 等，留空不限。
+- **论文分类**：`papers.arxiv_categories`，多分类用 `+` 连接，如 `cs.CV+cs.RO`。
+
+## 📌 数据源（均为公开）
+
+| 数据 | 接口 / 页面 | 排序口径 |
+| --- | --- | --- |
+| GitHub 新星库 | `search/repositories?q=created:>7d&sort=stars` | 近 7 天新建，star 降序，再按领域词打分 |
+| GitHub 活跃热库 | `q=stars:>500 pushed:<24h&sort=stars` | 24h 内仍有提交的高星库 |
+| 论文日榜 | `huggingface.co/api/daily_papers?sort=trending` | 社区 upvote 热度 |
+| 新论文 | `rss.arxiv.org/rss/cs.CV+cs.RO+cs.AI+cs.CL` | 按分类订阅后关键词过滤 |
+
+> GitHub Search 未认证 10 次/分、认证后 30 次/分；arXiv RSS 按美东时间午夜更新，周末可能为空属正常。
+
+## 📝 说明
+
+- 中文简介由免费翻译接口生成，个别术语机翻略生硬；配了 LLM Key 可替换为更精炼的人工式摘要。
+- 飞书机器人若开启「签名校验」，需在 `push_feishu` 补 timestamp+sign 逻辑（当前为普通 webhook）。
+- 官方 Trending 无公开 RSS 且反爬强，故用官方 Search API 取新星、用 `pushed` 取活跃库，比硬爬 HTML 稳定。

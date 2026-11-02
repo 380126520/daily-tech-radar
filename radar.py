@@ -263,7 +263,85 @@ def llm_one_liner(text: str, cfg: dict) -> str | None:
         return None
 
 
+# ---------- 免费中文翻译（无 LLM key 时的简介回退） ----------
+import html as _html
+
+_T_CACHE: dict[str, str] = {}
+
+
+def translate_zh(text: str) -> str:
+    """用免费 MyMemory 把英文一句话译为中文；失败回退原文。带缓存。"""
+    text = (text or "").strip()
+    if not text:
+        return ""
+    if text in _T_CACHE:
+        return _T_CACHE[text]
+    src = text[:220]
+    try:
+        r = requests.get(
+            "https://api.mymemory.translated.net/get",
+            params={"q": src, "langpair": "en|zh-CN"}, timeout=HTTP_TIMEOUT,
+        )
+        j = r.json()
+        out = j.get("responseData", {}).get("translatedText", "")
+        if out and j.get("responseStatus") == 200:
+            import re as _re
+            out = _re.sub(r"\s+", " ", out).strip()
+            _T_CACHE[text] = out
+            return out
+    except Exception as e:
+        print(f"[warn] 翻译失败，回退原文: {e}", file=sys.stderr)
+    _T_CACHE[text] = text
+    return text
+
+
+def intro_for(text: str, cfg: dict) -> str:
+    """简介优先用 LLM（配了 key），否则免费翻译为中文。"""
+    s = llm_one_liner(text, cfg)
+    return s if s else translate_zh(text)
+
+
+def esc(s: str) -> str:
+    return _html.escape(str(s), quote=True)
+
+
+def fmt_stars(n: int) -> str:
+    return f"{n/1000:.1f}k" if n >= 1000 else str(n)
+
+
 # ---------- 渲染 ----------
+def _clean_summary(s: str) -> str:
+    """剥掉 arXiv RSS 的 arXiv id/公告类型/摘要前缀，压缩空白。"""
+    import re as _re
+    s = s or ""
+    s = _re.sub(r"arXiv:\S+", " ", s)
+    s = _re.sub(r"公告类型[：:].*?(摘要[：:]|$)", " ", s)
+    s = _re.sub(r"摘要[：:]", " ", s)
+    return _re.sub(r"\s+", " ", s).strip()
+
+
+def _gh_md(it: dict, badge: str, cfg: dict) -> str:
+    desc = (it.get("description") or "").strip() or it["full_name"]
+    intro = intro_for(desc, cfg)
+    lang = it.get("language") or "—"
+    return (
+        f"#### {badge} [{it['full_name']}]({it['html_url']})\n"
+        f"⭐ {fmt_stars(it.get('stargazers_count', 0))} · 🍴 {fmt_stars(it.get('forks_count', 0))} · {lang}\n\n"
+        f"> 📝 {intro}\n\n"
+        f"🔗 [查看仓库]({it['html_url']})\n"
+    )
+
+
+def _paper_md(p: dict, badge: str, cfg: dict) -> str:
+    intro = intro_for(_clean_summary(p.get("summary", ""))[:220] or p["title"], cfg)
+    extra = f" 👍{p.get('upvotes', 0)}" if "upvotes" in p else ""
+    return (
+        f"#### {badge} [{p['title']}]({p['url']}){extra}\n\n"
+        f"> 📝 {intro}\n\n"
+        f"🔗 [查看论文]({p['url']})\n"
+    )
+
+
 def render_markdown(date_str: str, gh_new: dict, gh_active: list, hf: dict, arxiv: list,
                     seen: dict, cfg: dict) -> str:
     lines = [f"# 每日技术雷达 · {date_str}", ""]
@@ -282,10 +360,7 @@ def render_markdown(date_str: str, gh_new: dict, gh_active: list, hf: dict, arxi
         for it in items:
             key = f"gh:{it['full_name']}"
             badge = "🆕" if key not in seen else ""
-            desc = (it.get("description") or "（无描述）").strip()
-            summary = llm_one_liner(f"{it['full_name']} {desc}", cfg)
-            extra = f" — {summary}" if summary else ""
-            lines.append(f"- {badge} **[{it['full_name']}]({it['html_url']})** ⭐{it.get('stargazers_count', 0)}｜{desc}{extra}")
+            lines.append(_gh_md(it, badge, cfg))
             seen[key] = date_str
         lines.append("")
     if not any_new:
@@ -298,8 +373,7 @@ def render_markdown(date_str: str, gh_new: dict, gh_active: list, hf: dict, arxi
         for it in gh_active:
             key = f"gh:{it['full_name']}"
             badge = "🆕" if key not in seen else ""
-            desc = (it.get("description") or "（无描述）").strip()
-            lines.append(f"- {badge} **[{it['full_name']}]({it['html_url']})** ⭐{it.get('stargazers_count', 0)}｜{desc}")
+            lines.append(_gh_md(it, badge, cfg))
             seen[key] = date_str
     else:
         lines.append("_今日无匹配活跃热库。_")
@@ -316,7 +390,7 @@ def render_markdown(date_str: str, gh_new: dict, gh_active: list, hf: dict, arxi
         for p in papers:
             key = f"hf:{p['id']}"
             badge = "🆕" if key not in seen else ""
-            lines.append(f"- {badge} **[{p['title']}]({p['url']})** 👍{p['upvotes']}")
+            lines.append(_paper_md(p, badge, cfg))
             seen[key] = date_str
         lines.append("")
     if not any_hf:
@@ -329,13 +403,130 @@ def render_markdown(date_str: str, gh_new: dict, gh_active: list, hf: dict, arxi
         for p in arxiv:
             key = f"arxiv:{p['id']}"
             badge = "🆕" if key not in seen else ""
-            lines.append(f"- {badge} **[{p['title']}]({p['url']})**")
-            lines.append(f"  - {p['summary']}")
+            lines.append(_paper_md(p, badge, cfg))
             seen[key] = date_str
     else:
         lines.append("_今日无匹配新提交。_")
     lines.append("")
     return "\n".join(lines)
+
+
+# ---------- HTML 卡片版 ----------
+def _gh_html(it: dict, badge: str, cfg: dict) -> str:
+    desc = (it.get("description") or "").strip() or it["full_name"]
+    intro = intro_for(desc, cfg)
+    lang = it.get("language") or "—"
+    return f"""
+    <article class="card">
+      <div class="card-head"><a class="name" href="{esc(it['html_url'])}">{esc(it['full_name'])}</a>{badge}</div>
+      <div class="badges">
+        <span class="badge">⭐ {fmt_stars(it.get('stargazers_count',0))}</span>
+        <span class="badge">🍴 {fmt_stars(it.get('forks_count',0))}</span>
+        <span class="badge lang">{esc(lang)}</span>
+      </div>
+      <p class="intro">📝 {esc(intro)}</p>
+      <div class="card-foot"><span></span><a class="cta" href="{esc(it['html_url'])}">访问仓库 →</a></div>
+    </article>"""
+
+
+def _paper_html(p: dict, badge: str, cfg: dict) -> str:
+    intro = intro_for(_clean_summary(p.get("summary", ""))[:220] or p["title"], cfg)
+    up = f"👍{p.get('upvotes',0)}" if "upvotes" in p else ""
+    return f"""
+    <article class="card">
+      <div class="card-head"><a class="name" href="{esc(p['url'])}">{esc(p['title'])}</a>{badge}</div>
+      <div class="badges"><span class="badge">{esc(up)}</span></div>
+      <p class="intro">📝 {esc(intro)}</p>
+      <div class="card-foot"><span></span><a class="cta" href="{esc(p['url'])}">查看论文 →</a></div>
+    </article>"""
+
+
+def _section(title: str, cards: list[str]) -> str:
+    if not cards:
+        return ""
+    return f"""
+    <section><h2>{esc(title)}</h2><div class="grid">{''.join(cards)}
+    </div></section>"""
+
+
+def render_html(date_str: str, gh_new: dict, gh_active: list, hf: dict, arxiv: list,
+                seen: dict, cfg: dict) -> str:
+    blocks = []
+    # 新星（按领域拼卡片）
+    new_cards = []
+    for topic, items in gh_new.items():
+        for it in items:
+            key = f"gh:{it['full_name']}"
+            badge = '<span class="new">🆕</span>' if key not in seen else ""
+            new_cards.append(_gh_html(it, badge, cfg))
+            seen[key] = date_str
+    blocks.append(_section("一、GitHub 新星库（近 7 天新建）", new_cards))
+
+    act_cards = []
+    for it in gh_active:
+        key = f"gh:{it['full_name']}"
+        badge = '<span class="new">🆕</span>' if key not in seen else ""
+        act_cards.append(_gh_html(it, badge, cfg))
+        seen[key] = date_str
+    blocks.append(_section("二、GitHub 活跃热库（24h 内更新）", act_cards))
+
+    hf_cards = []
+    for topic, papers in hf.items():
+        for p in papers:
+            key = f"hf:{p['id']}"
+            badge = '<span class="new">🆕</span>' if key not in seen else ""
+            hf_cards.append(_paper_html(p, badge, cfg))
+            seen[key] = date_str
+    blocks.append(_section("三、Hugging Face 论文日榜", hf_cards))
+
+    ax_cards = []
+    for p in arxiv:
+        key = f"arxiv:{p['id']}"
+        badge = '<span class="new">🆕</span>' if key not in seen else ""
+        ax_cards.append(_paper_html(p, badge, cfg))
+        seen[key] = date_str
+    blocks.append(_section("四、arXiv 新提交", ax_cards))
+
+    topic_names = " / ".join(t["name"] for t in cfg["topics"])
+    return f"""<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>每日技术雷达 · {date_str}</title>
+<style>
+  :root {{ --bg:#f4f6fb; --card:#fff; --ink:#1f2430; --sub:#6b7280; --line:#e7eaf2;
+           --accent:#4f6ef7; --accent-soft:#eef1ff; }}
+  * {{ box-sizing:border-box; }}
+  body {{ margin:0; background:var(--bg); color:var(--ink);
+         font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif; line-height:1.6; }}
+  .wrap {{ max-width:1080px; margin:0 auto; padding:28px 18px 60px; }}
+  header {{ background:linear-gradient(135deg,#4f6ef7,#7a5cf0); color:#fff;
+            border-radius:18px; padding:26px 28px; margin-bottom:22px; }}
+  header h1 {{ margin:0 0 6px; font-size:22px; }}
+  header p {{ margin:0; opacity:.9; font-size:14px; }}
+  h2 {{ font-size:17px; margin:26px 0 12px; padding-left:10px; border-left:4px solid var(--accent); }}
+  .grid {{ display:grid; grid-template-columns:repeat(auto-fill,minmax(310px,1fr)); gap:14px; }}
+  .card {{ background:var(--card); border:1px solid var(--line); border-radius:14px;
+           padding:16px; display:flex; flex-direction:column; gap:10px; }}
+  .card:hover {{ box-shadow:0 6px 20px rgba(79,110,247,.12); }}
+  .card-head {{ display:flex; justify-content:space-between; gap:8px; align-items:flex-start; }}
+  .name {{ font-weight:700; font-size:15px; color:var(--ink); text-decoration:none; word-break:break-all; }}
+  .name:hover {{ color:var(--accent); }}
+  .new {{ font-size:13px; }}
+  .badges {{ display:flex; flex-wrap:wrap; gap:6px; }}
+  .badge {{ font-size:12px; color:var(--sub); background:var(--bg); border-radius:999px; padding:3px 10px; }}
+  .badge.lang {{ color:var(--accent); background:var(--accent-soft); }}
+  .intro {{ margin:0; font-size:14px; color:#333845; flex:1; }}
+  .card-foot {{ display:flex; justify-content:space-between; align-items:center; }}
+  .cta {{ font-size:13px; color:var(--accent); text-decoration:none; font-weight:600; }}
+</style>
+</head>
+<body><div class="wrap">
+  <header><h1>📡 每日技术雷达</h1>
+  <p>{date_str} · {esc(topic_names)} · 每日自动更新</p></header>
+  {''.join(blocks)}
+</div></body></html>"""
 
 
 # ---------- 推送 ----------
@@ -394,11 +585,13 @@ def main() -> None:
     print("→ 抓取 arXiv RSS ...")
     arxiv = fetch_arxiv(cfg)
 
+    import copy
     markdown = render_markdown(today, gh_new, gh_active, hf, arxiv, seen, cfg)
-    out_path = REPORTS_DIR / f"{today}.md"
-    out_path.write_text(markdown, encoding="utf-8")
+    html = render_html(today, gh_new, gh_active, hf, arxiv, dict(seen), cfg)
+    (REPORTS_DIR / f"{today}.md").write_text(markdown, encoding="utf-8")
+    (REPORTS_DIR / f"{today}.html").write_text(html, encoding="utf-8")
     save_seen(seen)
-    print(f"✓ 日报已生成: {out_path}")
+    print(f"✓ 日报已生成: reports/{today}.md / .html")
 
     push_feishu(markdown, cfg)
     push_email(markdown, today, cfg)
