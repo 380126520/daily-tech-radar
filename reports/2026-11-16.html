@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>每日技术雷达 · 2026-11-16</title>
+<style>
+  :root { --bg:#f4f6fb; --card:#fff; --ink:#1f2430; --sub:#6b7280; --line:#e7eaf2;
+           --accent:#4f6ef7; --accent-soft:#eef1ff; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif; line-height:1.6; }
+  .wrap { max-width:1080px; margin:0 auto; padding:28px 18px 60px; }
+  header { background:linear-gradient(135deg,#4f6ef7,#7a5cf0); color:#fff;
+            border-radius:18px; padding:26px 28px; margin-bottom:22px; }
+  header h1 { margin:0 0 6px; font-size:22px; }
+  header p { margin:0; opacity:.9; font-size:14px; }
+  h2 { font-size:17px; margin:26px 0 12px; padding-left:10px; border-left:4px solid var(--accent); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(310px,1fr)); gap:14px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px;
+           padding:16px; display:flex; flex-direction:column; gap:10px; }
+  .card:hover { box-shadow:0 6px 20px rgba(79,110,247,.12); }
+  .card-head { display:flex; justify-content:space-between; gap:8px; align-items:flex-start; }
+  .name { font-weight:700; font-size:15px; color:var(--ink); text-decoration:none; word-break:break-all; }
+  .name:hover { color:var(--accent); }
+  .new { font-size:13px; }
+  .badges { display:flex; flex-wrap:wrap; gap:6px; }
+  .badge { font-size:12px; color:var(--sub); background:var(--bg); border-radius:999px; padding:3px 10px; }
+  .badge.lang { color:var(--accent); background:var(--accent-soft); }
+  .intro { margin:0; font-size:14px; color:#333845; flex:1; }
+  .card-foot { display:flex; justify-content:space-between; align-items:center; }
+  .cta { font-size:13px; color:var(--accent); text-decoration:none; font-weight:600; }
+</style>
+</head>
+<body><div class="wrap">
+  <header><h1>📡 每日技术雷达</h1>
+  <p>2026-11-16 · 无人机巡检 / 电力视觉缺陷检测 / AI 编程 / AI 应用 / Agent / RAG / LLM 模型与推理 / Skills / MCP / 提示词生态 / 本体 / 知识图谱 / 语义网 · 每日自动更新</p></header>
+  
+    <section><h2>一、GitHub 新星库（近 7 天新建）</h2><div class="grid">
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://github.com/syydaniel/kaikou">syydaniel/kaikou</a></div>
+      <div class="badges">
+        <span class="badge">⭐ 35</span>
+        <span class="badge">🍴 4</span>
+        <span class="badge lang">Python</span>
+      </div>
+      <p class="intro">📝 开口 kaikou：让克隆的声音，一开口就说人话。A skill for AI coding assistants: natural-sounding voice-overs from open-source voice cloning, from recording to final mix.</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://github.com/syydaniel/kaikou">访问仓库 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://github.com/huawei-csl/MACaQ">huawei-csl/MACaQ</a></div>
+      <div class="badges">
+        <span class="badge">⭐ 317</span>
+        <span class="badge">🍴 21</span>
+        <span class="badge lang">C++</span>
+      </div>
+      <p class="intro">📝 SOTA model-agnostic quantization for GGUF, local inference and beyond. Quantize and run text, image, video and audio models with llama.cpp, vLLM, Diffusers and PyTorch.</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://github.com/huawei-csl/MACaQ">访问仓库 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://github.com/Veloresearch/kinetic">Veloresearch/kinetic</a></div>
+      <div class="badges">
+        <span class="badge">⭐ 90</span>
+        <span class="badge">🍴 6</span>
+        <span class="badge lang">Rust</span>
+      </div>
+      <p class="intro">📝 The open engine for running AI on your own computer. Fast, exact, open source.</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://github.com/Veloresearch/kinetic">访问仓库 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://github.com/mit-han-lab/EvolvingInfra">mit-han-lab/EvolvingInfra</a></div>
+      <div class="badges">
+        <span class="badge">⭐ 52</span>
+        <span class="badge">🍴 5</span>
+        <span class="badge lang">Python</span>
+      </div>
+      <p class="intro">📝 A inference framework that adapt to diverse and dynamic agent workload</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://github.com/mit-han-lab/EvolvingInfra">访问仓库 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://github.com/racdeufindurch198812/Blender-AI-MCP-Studio">racdeufindurch198812/Blender-AI-MCP-Studio</a></div>
+      <div class="badges">
+        <span class="badge">⭐ 511</span>
+        <span class="badge">🍴 13</span>
+        <span class="badge lang">—</span>
+      </div>
+      <p class="intro">📝 Blender AI MCP Studio is an AI assistant and built-in Model Context Protocol MCP server for Blender that turns plain-language briefs into inspected, approved and reversible 3D scene operations — with a visual chat workspace, multi-agent teams and your choice of AI models. · blender ai mcp studio · mcp-for-blender · mcp for blender pro</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://github.com/racdeufindurch198812/Blender-AI-MCP-Studio">访问仓库 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://github.com/findavoulot1973/Blender-AI-MCP-Suite">findavoulot1973/Blender-AI-MCP-Suite</a></div>
+      <div class="badges">
+        <span class="badge">⭐ 497</span>
+        <span class="badge">🍴 12</span>
+        <span class="badge lang">—</span>
+      </div>
+      <p class="intro">📝 Blender AI MCP Suite is an AI assistant and built-in Model Context Protocol MCP server for Blender that turns plain-language briefs into inspected, approved and reversible 3D scene operations — with a visual Studio workspace, multi-agent teams, 21+ scene tools and your choice of AI models. · blender ai mcp suite · blender ai mcp · ai for blender</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://github.com/findavoulot1973/Blender-AI-MCP-Suite">访问仓库 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://github.com/Roguenebulaport/respocket-solaegis-defai">Roguenebulaport/respocket-solaegis-defai</a></div>
+      <div class="badges">
+        <span class="badge">⭐ 50</span>
+        <span class="badge">🍴 0</span>
+        <span class="badge lang">HTML</span>
+      </div>
+      <p class="intro">📝 Autonomous Multi-Chain AI Agent Risk &amp; Execution Protocol for Solana &amp; DeFi with Model Context Protocol (MCP) | Colosseum Crypto World&#x27;s Fair 2026</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://github.com/Roguenebulaport/respocket-solaegis-defai">访问仓库 →</a></div>
+    </article>
+    </div></section>
+    <section><h2>二、GitHub 活跃热库（24h 内更新）</h2><div class="grid">
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://github.com/morluto/rea">morluto/rea</a></div>
+      <div class="badges">
+        <span class="badge">⭐ 462.5k</span>
+        <span class="badge">🍴 113.2k</span>
+        <span class="badge lang">TypeScript</span>
+      </div>
+      <p class="intro">📝 Reverse engineer anything with agents, from app behavior down to native binaries.</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://github.com/morluto/rea">访问仓库 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://github.com/affaan-m/ECC">affaan-m/ECC</a></div>
+      <div class="badges">
+        <span class="badge">⭐ 304.0k</span>
+        <span class="badge">🍴 44.8k</span>
+        <span class="badge lang">JavaScript</span>
+      </div>
+      <p class="intro">📝 The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://github.com/affaan-m/ECC">访问仓库 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://github.com/NousResearch/hermes-agent">NousResearch/hermes-agent</a></div>
+      <div class="badges">
+        <span class="badge">⭐ 263.7k</span>
+        <span class="badge">🍴 59.5k</span>
+        <span class="badge lang">Python</span>
+      </div>
+      <p class="intro">📝 The agent that grows with you</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://github.com/NousResearch/hermes-agent">访问仓库 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://github.com/anomalyco/opencode">anomalyco/opencode</a></div>
+      <div class="badges">
+        <span class="badge">⭐ 227.1k</span>
+        <span class="badge">🍴 30.8k</span>
+        <span class="badge lang">TypeScript</span>
+      </div>
+      <p class="intro">📝 The open source coding agent.</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://github.com/anomalyco/opencode">访问仓库 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://github.com/n8n-io/n8n">n8n-io/n8n</a></div>
+      <div class="badges">
+        <span class="badge">⭐ 210.6k</span>
+        <span class="badge">🍴 61.5k</span>
+        <span class="badge lang">TypeScript</span>
+      </div>
+      <p class="intro">📝 Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://github.com/n8n-io/n8n">访问仓库 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://github.com/Significant-Gravitas/AutoGPT">Significant-Gravitas/AutoGPT</a></div>
+      <div class="badges">
+        <span class="badge">⭐ 188.0k</span>
+        <span class="badge">🍴 45.9k</span>
+        <span class="badge lang">Python</span>
+      </div>
+      <p class="intro">📝 AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://github.com/Significant-Gravitas/AutoGPT">访问仓库 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://github.com/langgenius/dify">langgenius/dify</a></div>
+      <div class="badges">
+        <span class="badge">⭐ 161.2k</span>
+        <span class="badge">🍴 25.5k</span>
+        <span class="badge lang">Python</span>
+      </div>
+      <p class="intro">📝 Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on cloud, VPC, or self-hosted, so teams move from prototype to production without rebuilding the stack.</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://github.com/langgenius/dify">访问仓库 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://github.com/open-webui/open-webui">open-webui/open-webui</a></div>
+      <div class="badges">
+        <span class="badge">⭐ 158.8k</span>
+        <span class="badge">🍴 23.1k</span>
+        <span class="badge lang">Svelte</span>
+      </div>
+      <p class="intro">📝 User-friendly AI Interface (Supports Ollama, OpenAI API, ...)</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://github.com/open-webui/open-webui">访问仓库 →</a></div>
+    </article>
+    </div></section>
+    <section><h2>三、Hugging Face 论文日榜</h2><div class="grid">
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://huggingface.co/papers/2606.03748">Ultralytics YOLO26: Unified Real-Time End-to-End Vision Models</a></div>
+      <div class="badges"><span class="badge">👍25</span></div>
+      <p class="intro">📝 Real-time vision demands models that are accurate, efficient, and simple to deploy across diverse hardware. The YOLO family has become widely deployed for this reason, yet most YOLO detectors still rely on non-maximum su</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://huggingface.co/papers/2606.03748">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://huggingface.co/papers/2407.16741">OpenDevin: An Open Platform for AI Software Developers as Generalist
+  Agents</a></div>
+      <div class="badges"><span class="badge">👍86</span></div>
+      <p class="intro">📝 Software is one of the most powerful tools that we humans have at our disposal; it allows a skilled programmer to interact with the world in complex and profound ways. At the same time, thanks to improvements in large la</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://huggingface.co/papers/2407.16741">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://huggingface.co/papers/2610.22732">TokenEconomizer: Experience-Driven Black-Box Cost Control for Coding Agents</a></div>
+      <div class="badges"><span class="badge">👍16</span></div>
+      <p class="intro">📝 Advances in frontier coding agents have sharply increased the token costs of AI-assisted software engineering. Their token efficiency is typically evaluated on isolated tasks, whereas real-world developers use them to co</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://huggingface.co/papers/2610.22732">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://huggingface.co/papers/2608.10450">Persistent Recursive Worlds Enable Autonomous Software Evolution</a></div>
+      <div class="badges"><span class="badge">👍8</span></div>
+      <p class="intro">📝 Complex software systems develop over timescales that exceed the lifespan of any individual coding agent. Most agentic software systems preserve continuity through persistent sessions, memories, managers or shared contex</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://huggingface.co/papers/2608.10450">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://huggingface.co/papers/2412.20138">TradingAgents: Multi-Agents LLM Financial Trading Framework</a></div>
+      <div class="badges"><span class="badge">👍166</span></div>
+      <p class="intro">📝 Significant progress has been made in automated problem-solving using societies of agents powered by large language models (LLMs). In finance, efforts have largely focused on single-agent systems handling specific tasks</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://huggingface.co/papers/2412.20138">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://huggingface.co/papers/2605.03042">ARIS: Autonomous Research via Adversarial Multi-Agent Collaboration</a></div>
+      <div class="badges"><span class="badge">👍156</span></div>
+      <p class="intro">📝 This report describes ARIS (Auto-Research-in-sleep), an open-source research harness for autonomous research, including its architecture, assurance mechanisms, and early deployment experience. The performance of agent sy</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://huggingface.co/papers/2605.03042">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://huggingface.co/papers/2606.23050">Unlimited OCR Works</a></div>
+      <div class="badges"><span class="badge">👍105</span></div>
+      <p class="intro">📝 Recently, end-to-end OCR models, exemplified by DeepSeek OCR, have once again thrust OCR into the spotlight. A widely held view is that employing a large language model (LLM) as the decoder allows the model to leverage t</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://huggingface.co/papers/2606.23050">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://huggingface.co/papers/2509.22186">MinerU2.5: A Decoupled Vision-Language Model for Efficient
+  High-Resolution Document Parsing</a></div>
+      <div class="badges"><span class="badge">👍181</span></div>
+      <p class="intro">📝 We introduce MinerU2.5, a 1.2B-parameter document parsing vision-language model that achieves state-of-the-art recognition accuracy while maintaining exceptional computational efficiency. Our approach employs a coarse-to</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://huggingface.co/papers/2509.22186">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://huggingface.co/papers/2610.22471">Has GPT-6-Astra Achieved Embodied Intelligence?</a></div>
+      <div class="badges"><span class="badge">👍136</span></div>
+      <p class="intro">📝 GPT-6-Astra demonstrates a level of competence in robotic manipulation and navigation that challenges the conventional paradigm of building specialized models for individual tasks and embodiments. In this report, we ask</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://huggingface.co/papers/2610.22471">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://huggingface.co/papers/2309.06180">Efficient Memory Management for Large Language Model Serving with
+  PagedAttention</a></div>
+      <div class="badges"><span class="badge">👍77</span></div>
+      <p class="intro">📝 High throughput serving of large language models (LLMs) requires batching sufficiently many requests at a time. However, existing systems struggle because the key-value cache (KV cache) memory for each request is huge an</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://huggingface.co/papers/2309.06180">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://huggingface.co/papers/2611.12885">World In-Context Learning for Agentic Robot Manipulation</a></div>
+      <div class="badges"><span class="badge">👍57</span></div>
+      <p class="intro">📝 Trained action policies write manipulation skill into network weights, tying what is learned to the distribution it is learned from. In-context learning (ICL) avoids this coupling but has not matched trained policies, be</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://huggingface.co/papers/2611.12885">查看论文 →</a></div>
+    </article>
+    </div></section>
+    <section><h2>四、arXiv 新提交</h2><div class="grid">
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.17338">When Should LLM Agents Forget? Memory Filtering Under Query-Critical Resolver Errors</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 Announce Type: new Abstract: LLM memory systems often delete facts classified as stale. We show that this hard-filtering step can reduce downstream accuracy when resolver errors delete query-critical facts. Across three</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.17338">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.17339">Does the Ranking Hold? A Practitioner-Facing Audit of Hallucination Detectors on Small, Quantized, On-Device LLMs</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 Announce Type: new Abstract: Hallucination detection for large language models is dominated by methods evaluated on 7B-70B research models with abundant sampling budgets and exact-match or ROUGE correctness labels. The s</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.17339">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.17340">LoRAWeaver: Directional Adapter Routing in LoRA Representation Space</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 Announce Type: new Abstract: Large language models are expensive to update through full retraining. Parameter-efficient fine-tuning reduces the cost of adaptation, but repeated adaptation creates a growing pool of task-s</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.17340">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.17341">Tabular Population Priors as Structured Retrieval for EHR Medication Set Prediction</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 Announce Type: new Abstract: Medication prediction from electronic health records is a fixed vocabulary structured prediction problem, yet recent clinical RAG systems often treat it like open ended case based reasoning:</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.17341">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.17394">Agentic-Teacher: An Agentic Data Engine for Failure-Driven VLA Post-Training</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 Announce Type: new Abstract: Improving a pretrained vision-language-action (VLA) model requires demonstrations that address its weaknesses and provide effective supervision for learning. Coding agents can autonomously ge</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.17394">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.17400">ParseBench-2: Severity-Aware Evaluation of Document Parsing</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 Announce Type: new Abstract: Document-parsing metrics can give high scores to outputs that change important facts and penalize changes that preserve meaning. People can often judge these consequences more easily than the</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.17400">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.17442">Racing the Clock: Teaching VLNs Budget-Conditioned Object Search</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 Announce Type: new Abstract: A rescue robot entering a building with thirty seconds on the clock should sprint toward the single most promising room; given ten minutes, it should instead explore a broader tour. Yet visio</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.17442">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.17461">Tracing Knowledge and Reasoning in LLM</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 Announce Type: new Abstract: Current evaluations of Large Language Models (LLMs) report performance at the dataset or task level, revealing what a model achieves but offering little insight into the internal processing a</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.17461">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.17464">Poetry &#x27;resurrection&#x27; from LLMs</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 Announce Type: new Abstract: In an era where linguistic creativity is challenged by algorithmic authorship, we pose a provocative question: can artificial intelligence (AI) write an infinite poem? We set up two experimen</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.17464">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.17495">An Operationalization of Opaque Serial Depth</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 Announce Type: new Abstract: Chain-of-thought (CoT) is currently a valuable tool for overseeing AI models, but some architectural shifts could significantly reduce CoT monitorability. We operationalize a measure that ser</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.17495">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.17501">Advancing Quantization for R&amp;R Models with Microscaling Formats</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 Announce Type: new Abstract: Recommendation and Ranking (R&amp;amp;R) models, particularly in digital advertising, require massive inference throughput but exhibit extreme sensitivity to precision loss. Unlike Large Language</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.17501">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.17505">Adversarial Tracking: Attacks on Image Sensors for Object Tracking in Autonomous Vehicles</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 Announce Type: new Abstract: Object tracking systems estimate the motion of surrounding vehicles by linking detected objects across video frames. In particular, Tracking-By-Detection (TBD) systems combine object detector</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.17505">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.17515">A Push Down the Mountain: Framing Effects and Internal State Interventions on Collusive Behavior in a Long-Horizon LLM Agent</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 Announce Type: new Abstract: Can sustained gain-loss (valence) framing sway an LLM agent toward market manipulation? We place Gemma 3 12B into the seat of a defendant in the London silver-fixing litigation, in a market s</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.17515">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.17524">Model Annealing: Data-Efficient Learning through Review and Consolidation</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 Announce Type: new Abstract: A small labelled dataset is memorized long before the training budget runs out, and the one-hot labels that remain to be fitted then mostly sharpen confidence. Model annealing spends the rest</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.17524">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.17532">Astrocyte Biocomputing: Astrocytic Contributions to Neural Network Computation</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 Announce Type: new Abstract: Conductors are critical for the performance of an orchestra even though they do not emit sound. Basic research and clinical studies in the last decade are revealing that astrocytes may be the</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.17532">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.17539">Verifiable pXRD: Hill-climbing pXRD structure determination with LLM agents</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 Announce Type: new Abstract: Autonomous crystal-structure determination from powder X-ray diffraction (pXRD) remains a key bottleneck for self-driving materials laboratories. We formulate the task of pXRD structure deter</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.17539">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.17549">Talk to Act: A Synthetic Multi-Turn Dialogue Benchmark for Human Intent Extraction and Action Planning in Robotics</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 Announce Type: new Abstract: Multi-turn conversational human-robot interaction (HRI) continues to be a challenging problem in robotics, as many existing systems rely on rigid, command-driven interfaces that can be unintu</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.17549">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.17566">Grounding Object-to-Object Hazard Reasoning into 3D Risk Fields for Task-Conditioned Safety</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 Announce Type: new Abstract: Safety in robotics does not solely depend on geometric constraints, but also on semantics: the given task, environment properties, and interactions between objects in the scene. We present a</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.17566">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.17573">CamSpokenNLI: A Pilot Resource for Cross-Variety Transfer Evaluation in Cameroon Pidgin English and Camfranglais</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 Announce Type: new Abstract: Cameroon Pidgin English (a West African Pidgin English variety) and Camfranglais are widely used in Cameroon, yet to our knowledge, neither has a dedicated spoken Natural Language Inference (</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.17573">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.17583">When Does Less Information Pay? An Exact Finite Atlas of Representation, Payoff, and Cost</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 Announce Type: new Abstract: A representation that retains one bit about a four-state world can solve a task perfectly, while another that retains 1.5 bits on average reaches only 75% accuracy. The difference lies in whi</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.17583">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.17585">Rethinking Visual Reasoning in Text-to-Image Reward Modeling</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 Announce Type: new Abstract: Reward models are a core component of modern text-to-image systems, serving as the objective for inference-time selection and RL-based post-training. A key prerequisite is visual understandin</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.17585">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.17586">Where to Predict in Retinal OCT? Anatomy-Guided Target Selection for I-JEPA</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 Announce Type: new Abstract: Self-supervised learning aims to learn meaningful representations from unlabeled data, potentially allowing models to capture subtle anatomical variations across patients and reduce the amoun</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.17586">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.17598">X-Nav Technical Report: Real-World Long-Horizon Indoor-to-Outdoor Navigation on a Humanoid Robot</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 Announce Type: new Abstract: Long-horizon navigation from indoors to outdoors remains an open problem for humanoid robots: one instruction covers rooms, doors and roads, and the camera moves with the gait. Worken, AGIBOT</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.17598">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.17610">More Agents, More Samples, or More Thinking? Untangling Coordination, Ensembling, and Test-Time Compute in Multi-Agent LLMs</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 Announce Type: new Abstract: Evaluations of multi-agent language models often compare communicating architectures against a single greedy pass. This practice confounds coordination with sample multiplicity and inference</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.17610">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.17616">LLM-Guided Cluster Lifecycle Management: Deciding When and How to Evolve Behavioral Clusters</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 Announce Type: new Abstract: Behavioral clusters learned over user or item interactions drift as behavior evolves: some fragment into sub-behaviors, some converge, some disappear, and new patterns emerge. Two paradigms d</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.17616">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.17619">TouchTwin: Scaling Human Touch Data via Real-to-Sim-to-Real</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 Announce Type: new Abstract: Human demonstrations are becoming the main source of data for dexterous manipulation, and real-to-sim-to-real pipelines multiply each demonstration in simulation. These pipelines rebuild the</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.17619">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.17620">Safety Side Effects of Preventative Persona Steering: An Empirical Audit</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 Announce Type: new Abstract: High-level behaviors such as sycophancy and hallucination correspond to directions in a model&#x27;s activation space (Chen et al., 2025). These directions, known as persona vectors, can suppress</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.17620">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.17621">AscendGYM: A Cost-Aware Kernel Optimization Benchmark for Real-World Workloads on Ascend NPUs</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 Announce Type: new Abstract: Kernel optimization is essential for efficient large language model (LLM) training and inference on Ascend NPUs. Existing Ascend kernel benchmarks primarily focus on kernel generation, with l</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.17621">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.17629">Training-Free Acceleration of Multi-View 3D Transformers via Regime-Aware Attention Approximation</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 Announce Type: new Abstract: Multi-view 3D transformers such as VGGT reconstruct a scene from a set of unposed images in a single forward pass, predicting camera poses, depth and 3D points, but the cost of their global a</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.17629">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.17632">Generated Evaluation Suites as Diversity-Driven Search for Real Agent Regressions</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 Announce Type: new Abstract: Generating an evaluation suite from an agent&#x27;s specification is diversity-driven search: a generator fills a descriptor space (requirements $\times$ personas $\times$ scenario kinds), and the</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.17632">查看论文 →</a></div>
+    </article>
+    </div></section>
+</div></body></html>
