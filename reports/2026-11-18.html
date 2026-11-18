@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>每日技术雷达 · 2026-11-18</title>
+<style>
+  :root { --bg:#f4f6fb; --card:#fff; --ink:#1f2430; --sub:#6b7280; --line:#e7eaf2;
+           --accent:#4f6ef7; --accent-soft:#eef1ff; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif; line-height:1.6; }
+  .wrap { max-width:1080px; margin:0 auto; padding:28px 18px 60px; }
+  header { background:linear-gradient(135deg,#4f6ef7,#7a5cf0); color:#fff;
+            border-radius:18px; padding:26px 28px; margin-bottom:22px; }
+  header h1 { margin:0 0 6px; font-size:22px; }
+  header p { margin:0; opacity:.9; font-size:14px; }
+  h2 { font-size:17px; margin:26px 0 12px; padding-left:10px; border-left:4px solid var(--accent); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(310px,1fr)); gap:14px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px;
+           padding:16px; display:flex; flex-direction:column; gap:10px; }
+  .card:hover { box-shadow:0 6px 20px rgba(79,110,247,.12); }
+  .card-head { display:flex; justify-content:space-between; gap:8px; align-items:flex-start; }
+  .name { font-weight:700; font-size:15px; color:var(--ink); text-decoration:none; word-break:break-all; }
+  .name:hover { color:var(--accent); }
+  .new { font-size:13px; }
+  .badges { display:flex; flex-wrap:wrap; gap:6px; }
+  .badge { font-size:12px; color:var(--sub); background:var(--bg); border-radius:999px; padding:3px 10px; }
+  .badge.lang { color:var(--accent); background:var(--accent-soft); }
+  .intro { margin:0; font-size:14px; color:#333845; flex:1; }
+  .card-foot { display:flex; justify-content:space-between; align-items:center; }
+  .cta { font-size:13px; color:var(--accent); text-decoration:none; font-weight:600; }
+</style>
+</head>
+<body><div class="wrap">
+  <header><h1>📡 每日技术雷达</h1>
+  <p>2026-11-18 · 无人机巡检 / 电力视觉缺陷检测 / AI 编程 / AI 应用 / Agent / RAG / LLM 模型与推理 / Skills / MCP / 提示词生态 / 本体 / 知识图谱 / 语义网 · 每日自动更新</p></header>
+  
+    <section><h2>一、GitHub 新星库（近 7 天新建）</h2><div class="grid">
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://github.com/TartarusAIDev/awesome-ai-coding-agents">TartarusAIDev/awesome-ai-coding-agents</a></div>
+      <div class="badges">
+        <span class="badge">⭐ 20</span>
+        <span class="badge">🍴 0</span>
+        <span class="badge lang">Python</span>
+      </div>
+      <p class="intro">📝 精选清单和比较：AI 编码代理、CLI 编码助手、开源编码工具和自主开发者代理。</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://github.com/TartarusAIDev/awesome-ai-coding-agents">访问仓库 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://github.com/vellwarren/the-conversation-is-yours">vellwarren/the-conversation-is-yours</a></div>
+      <div class="badges">
+        <span class="badge">⭐ 26</span>
+        <span class="badge">🍴 0</span>
+        <span class="badge lang">JavaScript</span>
+      </div>
+      <p class="intro">📝 适用于长效 AI 助手的双运行时参考架构：应用程序自有状态、Claude Code + Messages API、双向连续性。</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://github.com/vellwarren/the-conversation-is-yours">访问仓库 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://github.com/sybil-solutions/inference-optimisation-skill">sybil-solutions/inference-optimisation-skill</a></div>
+      <div class="badges">
+        <span class="badge">⭐ 982</span>
+        <span class="badge">🍴 85</span>
+        <span class="badge lang">Python</span>
+      </div>
+      <p class="intro">📝 适用于任何硬件和量化的爬山法局部 LLM 服务速度（解码、推测性解码、预填充、KV、启动、TTFT）的代理技能</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://github.com/sybil-solutions/inference-optimisation-skill">访问仓库 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://github.com/racdeufindurch198812/Blender-AI-MCP-Studio">racdeufindurch198812/Blender-AI-MCP-Studio</a></div>
+      <div class="badges">
+        <span class="badge">⭐ 515</span>
+        <span class="badge">🍴 13</span>
+        <span class="badge lang">—</span>
+      </div>
+      <p class="intro">📝 Blender AI MCP Studio 是一款适用于 Blender 的 AI 助手和内置模型上下文协议 (MCP) 服务器，它能将通俗易懂的简要说明转化为经过检查、批准且可逆的 3D 场景操作，并提供可视化聊天工作空间。</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://github.com/racdeufindurch198812/Blender-AI-MCP-Studio">访问仓库 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://github.com/findavoulot1973/Blender-AI-MCP-Suite">findavoulot1973/Blender-AI-MCP-Suite</a></div>
+      <div class="badges">
+        <span class="badge">⭐ 498</span>
+        <span class="badge">🍴 12</span>
+        <span class="badge lang">—</span>
+      </div>
+      <p class="intro">📝 Blender AI MCP 套件是一款 AI 助手，也是 Blender 的内置模型上下文协议 (MCP) 服务器，它能将通俗易懂的简要说明转化为经过检查、批准且可逆的 3D 场景操作，并提供可视化工作室功能。</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://github.com/findavoulot1973/Blender-AI-MCP-Suite">访问仓库 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://github.com/MelissiaCervone94583/virtual-card-usdt-mcp-tool-use-ecosystem-billing-vcc">MelissiaCervone94583/virtual-card-usdt-mcp-tool-use-ecosystem-billing-vcc</a></div>
+      <div class="badges">
+        <span class="badge">⭐ 27</span>
+        <span class="badge">🍴 0</span>
+        <span class="badge lang">—</span>
+      </div>
+      <p class="intro">📝 直击 Model Context Protocol (MCP) 生态工具链（云端浏览器、沙盒代码执行器、企业数据连接器）多节点按量计费痛点，用 CoreGold 商业虚拟卡（VCC）+ USDT 实现微服务级预算硬隔离。</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://github.com/MelissiaCervone94583/virtual-card-usdt-mcp-tool-use-ecosystem-billing-vcc">访问仓库 →</a></div>
+    </article>
+    </div></section>
+    <section><h2>二、GitHub 活跃热库（24h 内更新）</h2><div class="grid">
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://github.com/morluto/rea">morluto/rea</a></div>
+      <div class="badges">
+        <span class="badge">⭐ 466.9k</span>
+        <span class="badge">🍴 114.2k</span>
+        <span class="badge lang">TypeScript</span>
+      </div>
+      <p class="intro">📝 使用代理对任何内容进行逆向工程，从应用程序行为到原生二进制文件。</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://github.com/morluto/rea">访问仓库 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://github.com/NousResearch/hermes-agent">NousResearch/hermes-agent</a></div>
+      <div class="badges">
+        <span class="badge">⭐ 264.3k</span>
+        <span class="badge">🍴 59.6k</span>
+        <span class="badge lang">Python</span>
+      </div>
+      <p class="intro">📝 与您共同成长的代理商</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://github.com/NousResearch/hermes-agent">访问仓库 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://github.com/anomalyco/opencode">anomalyco/opencode</a></div>
+      <div class="badges">
+        <span class="badge">⭐ 227.7k</span>
+        <span class="badge">🍴 30.9k</span>
+        <span class="badge lang">TypeScript</span>
+      </div>
+      <p class="intro">📝 开源编码代理。</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://github.com/anomalyco/opencode">访问仓库 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://github.com/n8n-io/n8n">n8n-io/n8n</a></div>
+      <div class="badges">
+        <span class="badge">⭐ 210.9k</span>
+        <span class="badge">🍴 61.6k</span>
+        <span class="badge lang">TypeScript</span>
+      </div>
+      <p class="intro">📝 具备原生人工智能功能的公平代码工作流自动化平台。将可视化构建与自定义代码相结合，支持自托管或云端，提供 400 多种集成。</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://github.com/n8n-io/n8n">访问仓库 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://github.com/firecrawl/firecrawl">firecrawl/firecrawl</a></div>
+      <div class="badges">
+        <span class="badge">⭐ 202.7k</span>
+        <span class="badge">🍴 10.6k</span>
+        <span class="badge lang">TypeScript</span>
+      </div>
+      <p class="intro">📝 让您的客服代表更聪明的知识基础设施。通过一个 API 进行搜索、抓取并访问 550 多个数据提供商。</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://github.com/firecrawl/firecrawl">访问仓库 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://github.com/Significant-Gravitas/AutoGPT">Significant-Gravitas/AutoGPT</a></div>
+      <div class="badges">
+        <span class="badge">⭐ 188.1k</span>
+        <span class="badge">🍴 45.9k</span>
+        <span class="badge lang">Python</span>
+      </div>
+      <p class="intro">📝 AutoGPT的愿景是让每个人都能使用和基于其进行构建的无障碍人工智能。我们的使命是提供工具，让您能够专注于重要的事情。</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://github.com/Significant-Gravitas/AutoGPT">访问仓库 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://github.com/ollama/ollama">ollama/ollama</a></div>
+      <div class="badges">
+        <span class="badge">⭐ 187.5k</span>
+        <span class="badge">🍴 19.1k</span>
+        <span class="badge lang">Go</span>
+      </div>
+      <p class="intro">📝 使用 Kimi、GLM、MiniMax、DeepSeek、gpt-oss、Qwen、Gemma 和其他模型快速上手。</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://github.com/ollama/ollama">访问仓库 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://github.com/langgenius/dify">langgenius/dify</a></div>
+      <div class="badges">
+        <span class="badge">⭐ 161.4k</span>
+        <span class="badge">🍴 25.5k</span>
+        <span class="badge lang">Python</span>
+      </div>
+      <p class="intro">📝 在一个协作工作空间中，借助丰富的AI模型和工具支持，构建Agentic工作流和RAG管道。在云端、VPC 或自托管环境中部署，让团队无需重建技术栈即可从原型阶段过渡到生产阶段。</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://github.com/langgenius/dify">访问仓库 →</a></div>
+    </article>
+    </div></section>
+    <section><h2>三、Hugging Face 论文日榜</h2><div class="grid">
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://huggingface.co/papers/2606.03748">Ultralytics YOLO26: Unified Real-Time End-to-End Vision Models</a></div>
+      <div class="badges"><span class="badge">👍26</span></div>
+      <p class="intro">📝 实时视觉需要准确、高效且易于在各种硬件上部署的模型。正因如此，YOLO 系列得到了广泛部署，但大多数 YOLO 检测器仍然依赖于非极大值抑制。</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://huggingface.co/papers/2606.03748">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://huggingface.co/papers/2407.16741">OpenDevin: An Open Platform for AI Software Developers as Generalist
+  Agents</a></div>
+      <div class="badges"><span class="badge">👍86</span></div>
+      <p class="intro">📝 软件是我们人类所拥有的最强大工具之一；它使熟练的程序员能够以复杂而深刻的方式与世界互动。与此同时，得益于大型语言模型（LLM）的改进，</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://huggingface.co/papers/2407.16741">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://huggingface.co/papers/2610.22732">TokenEconomizer: Experience-Driven Black-Box Cost Control for Coding Agents</a></div>
+      <div class="badges"><span class="badge">👍17</span></div>
+      <p class="intro">📝 尖端编码代理的进步大大增加了人工智能辅助软件工程的token成本。它们的token效率通常是在孤立的任务上进行评估，而现实世界的开发者则使用它们来……</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://huggingface.co/papers/2610.22732">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://huggingface.co/papers/2412.20138">TradingAgents: Multi-Agents LLM Financial Trading Framework</a></div>
+      <div class="badges"><span class="badge">👍169</span></div>
+      <p class="intro">📝 在使用由大型语言模型（LLM）驱动的智能体群体进行自动化问题解决方面，已经取得了显著进展。在金融领域，人们的工作主要集中在处理特定任务的单智能体系统上。</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://huggingface.co/papers/2412.20138">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://huggingface.co/papers/2605.03042">ARIS: Autonomous Research via Adversarial Multi-Agent Collaboration</a></div>
+      <div class="badges"><span class="badge">👍157</span></div>
+      <p class="intro">📝 本报告介绍了 ARIS（Auto-Research-in-sleep），这是一个用于自主研究的开源研究工具，包括其架构、保障机制和早期部署经验。代理系统 (agent sy) 的性能</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://huggingface.co/papers/2605.03042">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://huggingface.co/papers/2611.18397">Gamer: A Generalist Vision-Language-Action Foundation Model for Long-Horizon Real-Time Game Agent</a></div>
+      <div class="badges"><span class="badge">👍127</span></div>
+      <p class="intro">📝 我们隆重推出Gamer，这是一个通用型智能体框架，专为复杂交互环境中的长周期任务而打造。其端到端架构将感知、记忆管理和多步推理相结合。一个共享的……</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://huggingface.co/papers/2611.18397">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://huggingface.co/papers/2509.22186">MinerU2.5: A Decoupled Vision-Language Model for Efficient
+  High-Resolution Document Parsing</a></div>
+      <div class="badges"><span class="badge">👍182</span></div>
+      <p class="intro">📝 我们隆重推出 MinerU2.5，这是一款拥有 12 亿参数的文档解析视觉-语言模型，在保持卓越计算效率的同时，实现了最先进的识别准确率。我们的方法采用从粗到</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://huggingface.co/papers/2509.22186">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://huggingface.co/papers/2610.22471">Has GPT-6-Astra Achieved Embodied Intelligence?</a></div>
+      <div class="badges"><span class="badge">👍137</span></div>
+      <p class="intro">📝 GPT-6-Astra 在机器人操作和导航方面展现出的能力水平，对为个别任务和具体实现构建专用模型的传统范式提出了挑战。在本报告中，我们提出以下问题：</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://huggingface.co/papers/2610.22471">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://huggingface.co/papers/2309.06180">Efficient Memory Management for Large Language Model Serving with
+  PagedAttention</a></div>
+      <div class="badges"><span class="badge">👍78</span></div>
+      <p class="intro">📝 大型语言模型（LLM）的高吞吐量服务需要一次性批量处理足够多的请求。然而，现有系统面临着挑战，因为每个请求的键值缓存（KV 缓存）内存都非常大，而且</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://huggingface.co/papers/2309.06180">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://huggingface.co/papers/2611.12885">World In-Context Learning for Agentic Robot Manipulation</a></div>
+      <div class="badges"><span class="badge">👍58</span></div>
+      <p class="intro">📝 经过训练的行动策略将操纵技能写入网络权重，将所学内容与学习的分布联系起来。情境内学习（ICL）避免了这种耦合，但尚未达到训练策略的效果，</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://huggingface.co/papers/2611.12885">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://huggingface.co/papers/2501.13956">Zep: A Temporal Knowledge Graph Architecture for Agent Memory</a></div>
+      <div class="badges"><span class="badge">👍19</span></div>
+      <p class="intro">📝 我们隆重推出Zep，这是一款面向人工智能代理的新型内存层服务，在深度内存检索（DMR）基准测试中优于当前最先进的系统MemGPT。此外，Zep 在更全面和</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://huggingface.co/papers/2501.13956">查看论文 →</a></div>
+    </article>
+    </div></section>
+    <section><h2>四、arXiv 新提交</h2><div class="grid">
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.21641">RAW: Refusal Aversion in the Wild, A Causal Measurement Method for Deployed LLMs</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 公告类型：新摘要：已部署的 LLM 每天处理数亿次对话，并拒绝相当一部分用户请求，但用户因被拒绝而产生的成本，包括用户是否会脱离以及脱离的程度，</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.21641">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.21644">MInfoVisQA: A Multilingual Benchmark for Information-Rich Visual Question Answering</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 公告类型：新摘要：多模态大语言模型（MLLM）在视觉-语言任务方面表现出色；然而，当表层语言发生变化时，它们是否能对信息丰富的视觉内容（InfoVis）保持一致的理解</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.21644">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.21646">Limite 1B - Violetto: Technical Report</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 公告类型：新摘要：我们隆重推出 Limite 1B - Violetto，这是一款拥有 10 亿个参数的模型，专为高吞吐量数学推理而设计。Limite 是使用 2370 亿个精心挑选的标记从头开始训练的。</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.21646">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.21647">FieldGuide: A Corpus Map for Token-Efficient Agentic Document Exploration</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 公告类型：新摘要：生成式 AI 代理可以帮助记者探索庞大的文档集。但是，探索性工作流程可能需要大量代币和时间，特别是在任务范围较广且……时。</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.21647">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.21648">Can an LLM dream? Testing the overfitted brain hypothesis on an agent with text memory</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 公告类型：新摘要：Hoel（2021）提出，梦境会扭曲重现的经历，使大脑不会对近期事件过度拟合。我们在一款大语言模型（LLM）智能体（Claude Opus 5.5）上测试了这一假设，该智能体存储了其</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.21648">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.21649">Literary Language Mashup: Curating Fictions with Large Language Models</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 公告类型：新摘要：本文提出了一种对文学小说进行人类评估的替代方法，即在GrAImes框架内将LLM本身用作评估者。我们将这种方法应用于……</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.21649">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.21650">From Preference Data to Personalization: Tracing Sycophancy in Large Language Models</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 公告类型：新摘要：大语言模型中的谄媚通常被衡量为与用户的“一致性”，但当用户的陈述有效、其偏好真实或其经验……时，“一致性”可能是恰当的。</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.21650">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.21651">Consistency Is Not Correction: Separating Confidence, Abstention, and Recovery in LLM Agents</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 公告类型：新摘要：对答案进行重采样、升级到更大模型或弃权的控制器通常以置信度信号作为依据。关于此类信号的三个说法并不相互关联：i</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.21651">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.21653">Evaluating Semantic Insensitivity in Financial Sentiment Analysis: Implications for Sustainable Financial Decision-Making</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 公告类型：新摘要：金融情绪分析对于自动化交易、投资组合管理和风险评估至关重要，并且在很大程度上依赖于FinBERT等模型。尽管基准准确性很高，但这些模型</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.21653">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.21655">Depth-Aware Activation Steering via Attention Residuals</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 公告类型：新摘要：激活转向是一种简单且无需训练的方法，可用于调节大语言模型（LLM）的行为。然而，现有方法通常只在一个层上注入向量，并且缺乏深度感知传播或</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.21655">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.21669">Token Commitment as a Control Surface for Steering Masked Diffusion Generation</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 公告类型：新摘要：在采样器决定哪些预测成为永久预测之前，掩码扩散模型会反复预测临时标记。现有的推理时引导方法主要修改激活</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.21669">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.21682">NEBench R1: a Reasoning Benchmark for Evaluating Nuclear Domain Competence in Large Language Models</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 公告类型：新摘要：人们正在越来越多地探索将大型语言模型 (LLM) 用于核工程中知识密集型和安全关键型应用。然而，现有的核能领域基准提供……</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.21682">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.21690">EgoLink: Egocentric Language-Vision Interactive Network Knowledge Challenge Summary</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 公告类型：新摘要：ACM多媒体2026大会的EgoLink挑战赛将对以自我为中心的多模态智能进行基准测试，该智能将第一人称感知、社会推理和交互行为联系起来。与以自我为中心的基准测试不同，</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.21690">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.21705">Disambiguating Moral Circuits and Moral Features in Language Models: Moral content, normative judgment or cue words? Evidence from 14 models</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 公告类型：新摘要：可解释性方法可以定位注意力头和稀疏自编码器（SAE）特征，这些特征会改变语言模型对道德提示的回答，例如，是否“偷窃药物</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.21705">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.21782">Every Camera Grows Up: Camera-Height Regression in Interactive Video World Models</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 公告类型：新摘要：交互式视频世界模型可作为具身智能体的模拟器：从起始图像和动作轨迹出发，它们生成智能体将看到的视图。起始图像固定了 h</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.21782">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.21799">Chain-of-Thought Controllability Can Reduce Chain-of-Thought Monitorability</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 公告类型：新摘要：思维链（CoT）监测是一种很有前途的工具，可用于检测人工智能体中的隐藏目标、偏离任务的行为以及其他故障。一个风险是，模型可能会故意塑造其……</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.21799">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.21802">Data-Driven Variable-Length Compression of 3D Representations</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 公告类型：新摘要：压缩3D形状对于许多应用的效率至关重要，但现有方法要么无法利用数据集级别的统计数据，要么对所有形状使用固定的压缩比。</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.21802">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.21804">Corrupting Ties: Investigating Robustness to Bias Injection Across Multi-Agent Network Topologies</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 公告类型：新摘要：人工智能系统正越来越多地被部署在高风险的决策场景中，在这些场景中，各组件之间的相互作用可能会带来公平性风险，而这些风险在对组件进行审计时可能仍未被发现。</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.21804">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.21808">SimAI: Mechanistic User Simulation through Psychological Network Models</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 公告类型：新摘要：当直接实验成本高昂或可能造成伤害时，逼真的用户模拟可以帮助研究人际互动。然而，现有的模拟器在很大程度上忽视了心理学</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.21808">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.21816">Rethinking Perceptual Similarity for Remote Sensing: Multi-Layer Attention Scoring and Human Preference Benchmarking</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 公告类型：新摘要：自然图像的感知相似性度量在遥感 (RS) 中的表现不佳，在遥感中，严重的空间地理和语义缺陷可能在视觉上看起来合理，但仍然具有决定性影响。</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.21816">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.21823">TUSI: A Citation-Grounded Graph-Based Benchmark</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 公告类型：新摘要：对波斯语法律领域的检索增强生成（RAG）系统进行评估仍然具有挑战性，因为基准缺乏真实性、扎实性和对法律推理的覆盖。现有资源是</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.21823">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.21846">Can a World Model Predict a Deepfake Video? A Consistency Margin Prior for Deepfake Detection</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 公告类型：新摘要：深度伪造检测器在其训练的 नस्上通常表现良好，但当在来自不同数据集的视频上进行测试时，其性能会下降。在本文中，我们研究了预测是否</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.21846">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.21867">FaceRiff: Data-Efficient Unified Text-to-3D Face Asset Synthesis via Geometric Conditioning</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 公告类型：新内容摘要：具有一致的 UV 贴图几何形状、反照率和基于物理的位移的高分辨率面部数据集非常稀缺，但此类资源对于逼真的数字人渲染至关重要。</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.21867">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.21878">Knowing Which, Not How Much: Language Models Order Party Positions They Cannot Place</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 公告类型：新摘要：人们越来越多地要求语言模型说明真实行为体的立场：一个政党的纲领优先考虑什么，一个机构承诺什么。此类判断具有可分级性，既包含顺序</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.21878">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.21890">Domain-Tuned Diffusion Super-Resolution for 4K Facial Asset Maps</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 公告类型：新内容摘要：基于物理的面部资产需要 4K 反射率贴图和位移贴图才能用于电影级特写镜头，但生成式管线通常只能生成 1K 的贴图。简单地应用摄影超分辨率技术</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.21890">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.21891">Call-Efficient ICD-10 Code Prediction via Supervised Candidate Generation and Selective LLM Invocation</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 公告类型：新摘要：根据简短的临床诊断文本自动分配ICD-10编码是一项实用的医学文本分类和规范化任务。这项任务之所以困难，是因为诊断短语</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.21891">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.21924">GridDriver: On-Board BEV-Based Language Planning and Reasoning</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 公告类型：新摘要：鸟瞰图（BEV）条件下的超大语言模型（LLM）实现了语言交互式驾驶，但车载部署需要高效的感知和持续规划，以及自动驾驶。</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.21924">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.21925">DNeo: Your Parallel Draft Model Needs Better Target Feature Encoding</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 公告类型：新摘要：投机扩散解码使用一个小型并行起草模型，在一个前向传播中生成 b 个草稿标记，然后通过一个更大的目标模型进行并行验证。更快 i</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.21925">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.21946">Conserved Verdicts, Drifting Commitments: Identifying Harmful Overthinking</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 公告类型：新摘要：已经得出正确答案的推理模型可能会因继续思考而失去该答案。决定是否停止意味着比较链条同一点上的两种概率：答案……</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.21946">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://arxiv.org/abs/2611.21975">Pathology Randomization for Synthetic Priors and Zero-Shot Detection</a></div>
+      <div class="badges"><span class="badge"></span></div>
+      <p class="intro">📝 公告类型：新摘要：医院脑成像档案中储存着各种各样的病理学数据，其样本量超过了前瞻性研究的样本量，对于代表性不足的人群和疾病而言尤其如此。解锁未整理的c</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://arxiv.org/abs/2611.21975">查看论文 →</a></div>
+    </article>
+    </div></section>
+</div></body></html>
