@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>每日技术雷达 · 2026-11-27</title>
+<style>
+  :root { --bg:#f4f6fb; --card:#fff; --ink:#1f2430; --sub:#6b7280; --line:#e7eaf2;
+           --accent:#4f6ef7; --accent-soft:#eef1ff; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif; line-height:1.6; }
+  .wrap { max-width:1080px; margin:0 auto; padding:28px 18px 60px; }
+  header { background:linear-gradient(135deg,#4f6ef7,#7a5cf0); color:#fff;
+            border-radius:18px; padding:26px 28px; margin-bottom:22px; }
+  header h1 { margin:0 0 6px; font-size:22px; }
+  header p { margin:0; opacity:.9; font-size:14px; }
+  h2 { font-size:17px; margin:26px 0 12px; padding-left:10px; border-left:4px solid var(--accent); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(310px,1fr)); gap:14px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px;
+           padding:16px; display:flex; flex-direction:column; gap:10px; }
+  .card:hover { box-shadow:0 6px 20px rgba(79,110,247,.12); }
+  .card-head { display:flex; justify-content:space-between; gap:8px; align-items:flex-start; }
+  .name { font-weight:700; font-size:15px; color:var(--ink); text-decoration:none; word-break:break-all; }
+  .name:hover { color:var(--accent); }
+  .new { font-size:13px; }
+  .badges { display:flex; flex-wrap:wrap; gap:6px; }
+  .badge { font-size:12px; color:var(--sub); background:var(--bg); border-radius:999px; padding:3px 10px; }
+  .badge.lang { color:var(--accent); background:var(--accent-soft); }
+  .intro { margin:0; font-size:14px; color:#333845; flex:1; }
+  .card-foot { display:flex; justify-content:space-between; align-items:center; }
+  .cta { font-size:13px; color:var(--accent); text-decoration:none; font-weight:600; }
+</style>
+</head>
+<body><div class="wrap">
+  <header><h1>📡 每日技术雷达</h1>
+  <p>2026-11-27 · 无人机巡检 / 电力视觉缺陷检测 / AI 编程 / AI 应用 / Agent / RAG / LLM 模型与推理 / Skills / MCP / 提示词生态 / 本体 / 知识图谱 / 语义网 · 每日自动更新</p></header>
+  
+    <section><h2>一、GitHub 新星库（近 7 天新建）</h2><div class="grid">
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://github.com/alesha-pro/llm.asm">alesha-pro/llm.asm</a></div>
+      <div class="badges">
+        <span class="badge">⭐ 1.8k</span>
+        <span class="badge">🍴 269</span>
+        <span class="badge lang">Assembly</span>
+      </div>
+      <p class="intro">📝 Qwen3-0.6B 推理（12 KB）、裸机可引导操作系统（22 KB）以及从头开始的 Mini-GPT 训练器，带实时盲文 TUI（32 KB），100% 纯 x86-64 NASM 汇编。零 C、零 libc、零依赖。</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://github.com/alesha-pro/llm.asm">访问仓库 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://github.com/alesha-pro/machine-code-llm-battle">alesha-pro/machine-code-llm-battle</a></div>
+      <div class="badges">
+        <span class="badge">⭐ 37</span>
+        <span class="badge">🍴 4</span>
+        <span class="badge lang">Python</span>
+      </div>
+      <p class="intro">📝 Qwen3-0.6B 推理引擎由 Gemini 4 Neon 和 Claude Opus 5.5 以原始 x86-64 机器代码（engine.hex，无编译器/汇编器/链接器）手工编写。两者在 CPU 上都优于 llama.cpp。</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://github.com/alesha-pro/machine-code-llm-battle">访问仓库 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://github.com/enwove/flyx">enwove/flyx</a></div>
+      <div class="badges">
+        <span class="badge">⭐ 84</span>
+        <span class="badge">🍴 9</span>
+        <span class="badge lang">C++</span>
+      </div>
+      <p class="intro">📝 零依赖本地LLM推理引擎，采用约50 MB的二进制文件——原生长上下文，针对每块GPU进行调优，内置推测性解码和Web仪表板。</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://github.com/enwove/flyx">访问仓库 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://github.com/BerriAI/inference-stack">BerriAI/inference-stack</a></div>
+      <div class="badges">
+        <span class="badge">⭐ 31</span>
+        <span class="badge">🍴 4</span>
+        <span class="badge lang">Python</span>
+      </div>
+      <p class="intro">📝 一键式开源推理栈：LiteLLM + Lens + llm-d + vLLM，配备启动器和Grafana</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://github.com/BerriAI/inference-stack">访问仓库 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://github.com/acailic/ai-engineer-path">acailic/ai-engineer-path</a></div>
+      <div class="badges">
+        <span class="badge">⭐ 21</span>
+        <span class="badge">🍴 1</span>
+        <span class="badge lang">Python</span>
+      </div>
+      <p class="intro">📝 从软件工程师到专业人工智能工程师的免费自学课程：101 章内容，讲解 LLM 的工作原理、如何构建和评估代理、提示注入防御、上线生产以及低成本推理。5 个结业项目，</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://github.com/acailic/ai-engineer-path">访问仓库 →</a></div>
+    </article>
+    </div></section>
+    <section><h2>二、GitHub 活跃热库（24h 内更新）</h2><div class="grid">
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://github.com/morluto/rea">morluto/rea</a></div>
+      <div class="badges">
+        <span class="badge">⭐ 480.3k</span>
+        <span class="badge">🍴 116.7k</span>
+        <span class="badge lang">TypeScript</span>
+      </div>
+      <p class="intro">📝 使用代理对任何内容进行逆向工程，从应用程序行为到原生二进制文件。</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://github.com/morluto/rea">访问仓库 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://github.com/NousResearch/hermes-agent">NousResearch/hermes-agent</a></div>
+      <div class="badges">
+        <span class="badge">⭐ 266.5k</span>
+        <span class="badge">🍴 60.5k</span>
+        <span class="badge lang">Python</span>
+      </div>
+      <p class="intro">📝 与您共同成长的代理商</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://github.com/NousResearch/hermes-agent">访问仓库 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://github.com/anomalyco/opencode">anomalyco/opencode</a></div>
+      <div class="badges">
+        <span class="badge">⭐ 229.5k</span>
+        <span class="badge">🍴 31.3k</span>
+        <span class="badge lang">TypeScript</span>
+      </div>
+      <p class="intro">📝 开源编码代理。</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://github.com/anomalyco/opencode">访问仓库 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://github.com/n8n-io/n8n">n8n-io/n8n</a></div>
+      <div class="badges">
+        <span class="badge">⭐ 212.4k</span>
+        <span class="badge">🍴 61.7k</span>
+        <span class="badge lang">TypeScript</span>
+      </div>
+      <p class="intro">📝 具备原生人工智能功能的公平代码工作流自动化平台。将可视化构建与自定义代码相结合，支持自托管或云端部署，提供 400 多种集成。</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://github.com/n8n-io/n8n">访问仓库 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://github.com/firecrawl/firecrawl">firecrawl/firecrawl</a></div>
+      <div class="badges">
+        <span class="badge">⭐ 211.2k</span>
+        <span class="badge">🍴 11.1k</span>
+        <span class="badge lang">TypeScript</span>
+      </div>
+      <p class="intro">📝 让您的客服代表更聪明的知识基础设施。通过一个 API 搜索、抓取和访问 550 多个数据提供商。</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://github.com/firecrawl/firecrawl">访问仓库 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://github.com/ultraworkers/claw-code">ultraworkers/claw-code</a></div>
+      <div class="badges">
+        <span class="badge">⭐ 194.7k</span>
+        <span class="badge">🍴 107.1k</span>
+        <span class="badge lang">Rust</span>
+      </div>
+      <p class="intro">📝 由代理管理、使用 Rust 和 Gajae-Code/LazyCodex 构建的博物馆展览——开发和维护均无需人工干预。</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://github.com/ultraworkers/claw-code">访问仓库 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://github.com/Significant-Gravitas/AutoGPT">Significant-Gravitas/AutoGPT</a></div>
+      <div class="badges">
+        <span class="badge">⭐ 188.2k</span>
+        <span class="badge">🍴 45.8k</span>
+        <span class="badge lang">Python</span>
+      </div>
+      <p class="intro">📝 AutoGPT的愿景是让每个人都能使用和基于其进行构建的无障碍人工智能。我们的使命是提供工具，让您能够专注于重要的事情。</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://github.com/Significant-Gravitas/AutoGPT">访问仓库 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://github.com/langgenius/dify">langgenius/dify</a></div>
+      <div class="badges">
+        <span class="badge">⭐ 162.0k</span>
+        <span class="badge">🍴 25.6k</span>
+        <span class="badge lang">Python</span>
+      </div>
+      <p class="intro">📝 在一个协作工作空间中，借助丰富的 AI 模型和工具支持，构建 Agentic 工作流和 RAG 管道。在云、VPC 或自托管环境中部署，让团队无需重建技术栈即可从原型阶段过渡到生产阶段。</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://github.com/langgenius/dify">访问仓库 →</a></div>
+    </article>
+    </div></section>
+    <section><h2>三、Hugging Face 论文日榜</h2><div class="grid">
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://huggingface.co/papers/2606.03748">Ultralytics YOLO26: Unified Real-Time End-to-End Vision Models</a></div>
+      <div class="badges"><span class="badge">👍26</span></div>
+      <p class="intro">📝 实时视觉需要准确、高效且易于在各种硬件上部署的模型。出于这个原因，YOLO 系列得到了广泛部署，但大多数 YOLO 检测器仍然依赖于非极大值抑制。</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://huggingface.co/papers/2606.03748">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://huggingface.co/papers/2407.16741">OpenDevin: An Open Platform for AI Software Developers as Generalist
+  Agents</a></div>
+      <div class="badges"><span class="badge">👍87</span></div>
+      <p class="intro">📝 软件是我们人类所拥有的最强大工具之一；它使熟练的程序员能够以复杂而深刻的方式与世界互动。与此同时，得益于大型语言模型的改进，</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://huggingface.co/papers/2407.16741">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://huggingface.co/papers/2610.22732">TokenEconomizer: Experience-Driven Black-Box Cost Control for Coding Agents</a></div>
+      <div class="badges"><span class="badge">👍21</span></div>
+      <p class="intro">📝 尖端编码代理的进步大大增加了人工智能辅助软件工程的token成本。它们的token效率通常是在孤立的任务上进行评估，而现实世界的开发者则使用它们来……</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://huggingface.co/papers/2610.22732">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://huggingface.co/papers/2412.20138">TradingAgents: Multi-Agents LLM Financial Trading Framework</a></div>
+      <div class="badges"><span class="badge">👍168</span></div>
+      <p class="intro">📝 在使用由大型语言模型（LLM）驱动的智能体群体进行自动化问题求解方面，已取得显著进展。在金融领域，人们的工作主要集中在处理特定任务的单智能体系统上。</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://huggingface.co/papers/2412.20138">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://huggingface.co/papers/2611.18397">Gamer: A Generalist Vision-Language-Action Foundation Model for Long-Horizon Real-Time Game Agent</a></div>
+      <div class="badges"><span class="badge">👍167</span></div>
+      <p class="intro">📝 我们隆重推出Gamer，这是一个通用型智能体框架，专为复杂交互环境中的长周期任务而打造。其端到端架构将感知、记忆管理和多步推理相结合。一个共享的……</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://huggingface.co/papers/2611.18397">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://huggingface.co/papers/2605.03042">ARIS: Autonomous Research via Adversarial Multi-Agent Collaboration</a></div>
+      <div class="badges"><span class="badge">👍158</span></div>
+      <p class="intro">📝 本报告介绍了 ARIS（Auto-Research-in-sleep），这是一个用于自主研究的开源研究工具，包括其架构、保障机制和早期部署经验。代理系统 (agent sy) 的性能</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://huggingface.co/papers/2605.03042">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://huggingface.co/papers/2509.22186">MinerU2.5: A Decoupled Vision-Language Model for Efficient
+  High-Resolution Document Parsing</a></div>
+      <div class="badges"><span class="badge">👍184</span></div>
+      <p class="intro">📝 我们隆重推出 MinerU2.5，这是一款拥有 12 亿参数的文档解析视觉-语言模型，在保持卓越计算效率的同时，实现了最先进的识别准确性。我们的方法采用从粗到</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://huggingface.co/papers/2509.22186">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://huggingface.co/papers/2603.16790">InCoder-32B: Code Foundation Model for Industrial Scenarios</a></div>
+      <div class="badges"><span class="badge">👍169</span></div>
+      <p class="intro">📝 近期的代码大语言模型在通用编程任务上取得了显著进展。然而，在需要对硬件语义进行推理的工业场景中，它们的性能会显著下降。</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://huggingface.co/papers/2603.16790">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://huggingface.co/papers/2610.22471">Has GPT-6-Astra Achieved Embodied Intelligence?</a></div>
+      <div class="badges"><span class="badge">👍132</span></div>
+      <p class="intro">📝 GPT-6-Astra 在机器人操作和导航方面展现出的能力水平，对为个别任务和具体实现构建专用模型的传统范式提出了挑战。在本报告中，我们提出以下问题：</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://huggingface.co/papers/2610.22471">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://huggingface.co/papers/2606.31227">Securing the AI Agent: A Unified Framework for Multi-Layer Agent Red Teaming</a></div>
+      <div class="badges"><span class="badge">👍12</span></div>
+      <p class="intro">📝 从模型服务引擎和代理平台到模型上下文协议 (MCP) 生态系统以及语言模型本身，开源人工智能基础设施的快速发展已经超过了现有安全工具的能力。</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://huggingface.co/papers/2606.31227">查看论文 →</a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><a class="name" href="https://huggingface.co/papers/2611.31198">ToolSmith: An Automatic Tool-Generation Framework for Multimodal Search Agents</a></div>
+      <div class="badges"><span class="badge">👍14</span></div>
+      <p class="intro">📝 最近的多模态搜索代理通过精心编排一小套手工打造的搜索和视觉工具，在多次交互中运用推理、视觉和实时网络搜索，来回答超出参数知识范围的问题。然而，</p>
+      <div class="card-foot"><span></span><a class="cta" href="https://huggingface.co/papers/2611.31198">查看论文 →</a></div>
+    </article>
+    </div></section>
+</div></body></html>
